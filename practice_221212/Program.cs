@@ -6,23 +6,25 @@ namespace practice_221212
     {
         static void Main(string[] args)
         {
-            int n = (Convert.ToInt32(Console.ReadLine()));
-            times(n, end);
-        }
-        private const int end = 1;
+            var input = Console.ReadLine();
+            var isNumber = double.TryParse(input, out var num);
 
-        private static void times(int i, int j)
+            if (!isNumber)
+            {
+                Console.WriteLine("請輸入數值");
+                return;
+            }
+
+            ShowMultiplication(num, 1);
+        }
+
+        private static void ShowMultiplication(double num, int times)
         {
-            if(j <= 0 || j >= 10)
-            {
-                Console.WriteLine("");
-            }
-            else
-            {
-                Console.WriteLine($"{i} * {j} = {i * j}");
-                j++;
-                times(i, j);
-            }
+            if (times >= 10) 
+                return;
+
+            Console.WriteLine($"{num} * {times} = {num * times}");
+            ShowMultiplication(num, times + 1);
         }
     }
 }
