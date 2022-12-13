@@ -7,9 +7,8 @@ namespace practice_221212
         static void Main(string[] args)
         {
             int n = (Convert.ToInt32(Console.ReadLine()));
-            times(n, end);
+            times(n, 1);
         }
-        private const int end = 1;
 
         private static void times(int i, int j)
         {
